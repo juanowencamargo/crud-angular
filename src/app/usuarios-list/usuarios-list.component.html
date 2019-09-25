@@ -1,0 +1,47 @@
+<div class="container custom-container-2">
+
+  <!-- muestra esto cuando no hay usuarios -->
+  <div class="no-data text-center" *ngIf="Usuarios.length == 0">
+    <p>no hay usuarios!</p>
+    <button class="btn btn-outline-primary" routerLink="/usuarios-create">Agregar Usuario</button><br><br>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="Usuarios.length !== 0">
+    <h3 class="mb-3 text-center">Usuarios</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuarios of Usuarios">
+            <td>{{usuarios.id}}</td>
+            <td>{{usuarios.nombre}}</td>
+            <td>{{usuarios.apellidos}}</td>
+            <td>{{usuarios.telefono}}</td>
+            <td>{{usuarios.genero}}</td>
+            <td>{{usuarios.correo}}</td>
+            <td>{{usuarios.imagen}}</td>
+            <td>
+              <span class="edit" routerLink="/usuarios-edit/{{usuarios.id}}">Editar</span>
+              <span class="delete" (click)="deleteUser(usuarios.id)">Borrar</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

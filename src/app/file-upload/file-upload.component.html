@@ -1,0 +1,15 @@
+<div class="col-md-6 pt-2">
+  <div class="form-group">
+    <label>Agregar archivo </label>
+    <div class="form-group">
+      <div class="input-group input-file" name="Fichier1">
+        <span class="input-group-btn">
+          <label class="btn btn-block btn-primary">Archivo
+            <input #otrosInput for="archivo" type="file" (change)="subirArchivo($event.target.files)">
+          </label>
+            <button type="button" (click)="onUpload()">Subir</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
